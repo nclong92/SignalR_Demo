@@ -25,11 +25,25 @@ namespace WindowsFormsServer
             // Register to static hub events
             SimpleHub.ClientConnected += SimpleHub_ClientConnected;
             SimpleHub.ClientDisconnected += SimpleHub_ClientDisconnected;
+            SimpleHub.ClientNameChanged += SimpleHub_ClientNameChanged;
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void SimpleHub_ClientNameChanged(string clientId, string newName)
+        {
+            // update the client's name if it exists
+            this.BeginInvoke(new Action(() =>
+            {
+                var client = _clients.FirstOrDefault(x => x.Id == clientId);
+
+                if (client != null) client.Name = newName;
+            }));
+
+            writeToLog($"Client name changed. Id: {clientId}, Name: {newName}");
         }
 
         private void SimpleHub_ClientConnected(string clientId)

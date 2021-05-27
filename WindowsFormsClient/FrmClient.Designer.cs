@@ -144,6 +144,7 @@ namespace WindowsFormsClient
             this.btnSend.TabIndex = 6;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // txtMessage
             // 
@@ -221,10 +222,10 @@ namespace WindowsFormsClient
             // 
             // txtLog
             // 
-            this.txtLog.Enabled = false;
             this.txtLog.Location = new System.Drawing.Point(6, 19);
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
+            this.txtLog.ReadOnly = true;
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtLog.Size = new System.Drawing.Size(455, 204);
             this.txtLog.TabIndex = 10;

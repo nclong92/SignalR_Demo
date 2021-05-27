@@ -108,5 +108,11 @@ namespace WindowsFormsClient
                 grpMembership.Enabled = false;
             }
         }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            // call the send method on the hub (on the server) wiith the given parameters
+            _hubProxy.Invoke("Send", txtMessage.Text);
+        }
     }
 }

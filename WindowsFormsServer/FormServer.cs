@@ -26,11 +26,24 @@ namespace WindowsFormsServer
             SimpleHub.ClientConnected += SimpleHub_ClientConnected;
             SimpleHub.ClientDisconnected += SimpleHub_ClientDisconnected;
             SimpleHub.ClientNameChanged += SimpleHub_ClientNameChanged;
+
+            SimpleHub.MessageReceived += SimpleHub_MessageReceived;
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void SimpleHub_MessageReceived(string senderClientId, string message)
+        {
+            // one of the clients sent a message, log it
+            this.BeginInvoke(new Action(() =>
+            {
+                string clientName = _clients.FirstOrDefault(x => x.Id == senderClientId)?.Name;
+
+                writeToLog($"{clientName}:{message}");
+            }));
         }
 
         private void SimpleHub_ClientNameChanged(string clientId, string newName)

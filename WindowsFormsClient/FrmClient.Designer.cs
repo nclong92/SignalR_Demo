@@ -32,10 +32,10 @@ namespace WindowsFormsClient
             this.grpConnection = new System.Windows.Forms.GroupBox();
             this.btnDisconnect = new System.Windows.Forms.Button();
             this.btnConnect = new System.Windows.Forms.Button();
-            this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtUrl = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.grpMessaging = new System.Windows.Forms.GroupBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.txtMessage = new System.Windows.Forms.TextBox();
@@ -47,31 +47,37 @@ namespace WindowsFormsClient
             this.txtGroupname = new System.Windows.Forms.TextBox();
             this.grpLog = new System.Windows.Forms.GroupBox();
             this.txtLog = new System.Windows.Forms.TextBox();
+            this.rdServer1 = new System.Windows.Forms.RadioButton();
+            this.rdServer2 = new System.Windows.Forms.RadioButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtUrl2 = new System.Windows.Forms.TextBox();
+            this.btnConnect2 = new System.Windows.Forms.Button();
+            this.btnDisconnect2 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.grpConnection.SuspendLayout();
             this.grpMessaging.SuspendLayout();
             this.grpMembership.SuspendLayout();
             this.grpLog.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpConnection
             // 
             this.grpConnection.Controls.Add(this.btnDisconnect);
             this.grpConnection.Controls.Add(this.btnConnect);
-            this.grpConnection.Controls.Add(this.txtUsername);
             this.grpConnection.Controls.Add(this.txtUrl);
-            this.grpConnection.Controls.Add(this.label2);
             this.grpConnection.Controls.Add(this.label1);
-            this.grpConnection.Location = new System.Drawing.Point(13, 13);
+            this.grpConnection.Location = new System.Drawing.Point(102, 43);
             this.grpConnection.Name = "grpConnection";
-            this.grpConnection.Size = new System.Drawing.Size(467, 117);
+            this.grpConnection.Size = new System.Drawing.Size(378, 73);
             this.grpConnection.TabIndex = 0;
             this.grpConnection.TabStop = false;
-            this.grpConnection.Text = "Connection";
+            this.grpConnection.Text = "Connection 1";
             // 
             // btnDisconnect
             // 
             this.btnDisconnect.Enabled = false;
-            this.btnDisconnect.Location = new System.Drawing.Point(199, 75);
+            this.btnDisconnect.Location = new System.Drawing.Point(199, 49);
             this.btnDisconnect.Name = "btnDisconnect";
             this.btnDisconnect.Size = new System.Drawing.Size(108, 23);
             this.btnDisconnect.TabIndex = 5;
@@ -81,21 +87,13 @@ namespace WindowsFormsClient
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(90, 76);
+            this.btnConnect.Location = new System.Drawing.Point(90, 50);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(108, 23);
             this.btnConnect.TabIndex = 4;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(90, 49);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(217, 20);
-            this.txtUsername.TabIndex = 3;
-            this.txtUsername.Text = "user";
             // 
             // txtUrl
             // 
@@ -105,23 +103,31 @@ namespace WindowsFormsClient
             this.txtUrl.TabIndex = 2;
             this.txtUrl.Text = "http://localhost:8080/signalr";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "User name";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(17, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(20, 13);
+            this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Url";
+            this.label1.Text = "Url 1";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(192, 12);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(217, 20);
+            this.txtUsername.TabIndex = 3;
+            this.txtUsername.Text = "user";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(119, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "User name";
             // 
             // grpMessaging
             // 
@@ -129,9 +135,9 @@ namespace WindowsFormsClient
             this.grpMessaging.Controls.Add(this.txtMessage);
             this.grpMessaging.Controls.Add(this.label3);
             this.grpMessaging.Enabled = false;
-            this.grpMessaging.Location = new System.Drawing.Point(12, 136);
+            this.grpMessaging.Location = new System.Drawing.Point(13, 254);
             this.grpMessaging.Name = "grpMessaging";
-            this.grpMessaging.Size = new System.Drawing.Size(467, 89);
+            this.grpMessaging.Size = new System.Drawing.Size(467, 78);
             this.grpMessaging.TabIndex = 1;
             this.grpMessaging.TabStop = false;
             this.grpMessaging.Text = "Messaging";
@@ -169,7 +175,7 @@ namespace WindowsFormsClient
             this.grpMembership.Controls.Add(this.label4);
             this.grpMembership.Controls.Add(this.txtGroupname);
             this.grpMembership.Enabled = false;
-            this.grpMembership.Location = new System.Drawing.Point(13, 231);
+            this.grpMembership.Location = new System.Drawing.Point(12, 338);
             this.grpMembership.Name = "grpMembership";
             this.grpMembership.Size = new System.Drawing.Size(467, 89);
             this.grpMembership.TabIndex = 2;
@@ -213,9 +219,9 @@ namespace WindowsFormsClient
             // grpLog
             // 
             this.grpLog.Controls.Add(this.txtLog);
-            this.grpLog.Location = new System.Drawing.Point(13, 326);
+            this.grpLog.Location = new System.Drawing.Point(13, 433);
             this.grpLog.Name = "grpLog";
-            this.grpLog.Size = new System.Drawing.Size(467, 229);
+            this.grpLog.Size = new System.Drawing.Size(467, 185);
             this.grpLog.TabIndex = 3;
             this.grpLog.TabStop = false;
             this.grpLog.Text = "Log";
@@ -230,12 +236,90 @@ namespace WindowsFormsClient
             this.txtLog.Size = new System.Drawing.Size(455, 204);
             this.txtLog.TabIndex = 10;
             // 
+            // rdServer1
+            // 
+            this.rdServer1.AutoSize = true;
+            this.rdServer1.Checked = true;
+            this.rdServer1.Location = new System.Drawing.Point(12, 61);
+            this.rdServer1.Name = "rdServer1";
+            this.rdServer1.Size = new System.Drawing.Size(65, 17);
+            this.rdServer1.TabIndex = 4;
+            this.rdServer1.TabStop = true;
+            this.rdServer1.Text = "Server 1";
+            this.rdServer1.UseVisualStyleBackColor = true;
+            // 
+            // rdServer2
+            // 
+            this.rdServer2.AutoSize = true;
+            this.rdServer2.Location = new System.Drawing.Point(12, 171);
+            this.rdServer2.Name = "rdServer2";
+            this.rdServer2.Size = new System.Drawing.Size(65, 17);
+            this.rdServer2.TabIndex = 6;
+            this.rdServer2.Text = "Server 2";
+            this.rdServer2.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 26);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(29, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Url 2";
+            // 
+            // txtUrl2
+            // 
+            this.txtUrl2.Location = new System.Drawing.Point(90, 23);
+            this.txtUrl2.Name = "txtUrl2";
+            this.txtUrl2.Size = new System.Drawing.Size(217, 20);
+            this.txtUrl2.TabIndex = 2;
+            this.txtUrl2.Text = "http://localhost:8081/signalr";
+            // 
+            // btnConnect2
+            // 
+            this.btnConnect2.Location = new System.Drawing.Point(90, 49);
+            this.btnConnect2.Name = "btnConnect2";
+            this.btnConnect2.Size = new System.Drawing.Size(108, 23);
+            this.btnConnect2.TabIndex = 4;
+            this.btnConnect2.Text = "Connect";
+            this.btnConnect2.UseVisualStyleBackColor = true;
+            this.btnConnect2.Click += new System.EventHandler(this.btnConnect2_Click);
+            // 
+            // btnDisconnect2
+            // 
+            this.btnDisconnect2.Enabled = false;
+            this.btnDisconnect2.Location = new System.Drawing.Point(199, 49);
+            this.btnDisconnect2.Name = "btnDisconnect2";
+            this.btnDisconnect2.Size = new System.Drawing.Size(108, 23);
+            this.btnDisconnect2.TabIndex = 5;
+            this.btnDisconnect2.Text = "Disconnect";
+            this.btnDisconnect2.UseVisualStyleBackColor = true;
+            this.btnDisconnect2.Click += new System.EventHandler(this.btnDisconnect2_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnDisconnect2);
+            this.groupBox1.Controls.Add(this.btnConnect2);
+            this.groupBox1.Controls.Add(this.txtUrl2);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Location = new System.Drawing.Point(102, 122);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(378, 83);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Connection 2";
+            // 
             // FrmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 567);
+            this.ClientSize = new System.Drawing.Size(492, 630);
+            this.Controls.Add(this.rdServer2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.rdServer1);
             this.Controls.Add(this.grpLog);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.grpMembership);
             this.Controls.Add(this.grpMessaging);
             this.Controls.Add(this.grpConnection);
@@ -249,7 +333,10 @@ namespace WindowsFormsClient
             this.grpMembership.PerformLayout();
             this.grpLog.ResumeLayout(false);
             this.grpLog.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -273,6 +360,13 @@ namespace WindowsFormsClient
         private System.Windows.Forms.TextBox txtGroupname;
         private System.Windows.Forms.GroupBox grpLog;
         private System.Windows.Forms.TextBox txtLog;
+        private System.Windows.Forms.RadioButton rdServer1;
+        private System.Windows.Forms.RadioButton rdServer2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtUrl2;
+        private System.Windows.Forms.Button btnConnect2;
+        private System.Windows.Forms.Button btnDisconnect2;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

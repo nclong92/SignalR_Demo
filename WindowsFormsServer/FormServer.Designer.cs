@@ -35,14 +35,14 @@ namespace WindowsFormsServer
             this.txtUrl = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grpBroastCast = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.txtMessage = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbClients = new System.Windows.Forms.ComboBox();
             this.cmbGroups = new System.Windows.Forms.ComboBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rdToClient = new System.Windows.Forms.RadioButton();
+            this.rdToGroup = new System.Windows.Forms.RadioButton();
+            this.rdToAll = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtLog = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
@@ -58,10 +58,10 @@ namespace WindowsFormsServer
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(441, 100);
+            this.groupBox1.Size = new System.Drawing.Size(441, 85);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Server";
+            this.groupBox1.Text = "Server 1";
             // 
             // btnStop
             // 
@@ -102,16 +102,16 @@ namespace WindowsFormsServer
             // 
             // grpBroastCast
             // 
-            this.grpBroastCast.Controls.Add(this.button3);
-            this.grpBroastCast.Controls.Add(this.textBox2);
+            this.grpBroastCast.Controls.Add(this.btnSend);
+            this.grpBroastCast.Controls.Add(this.txtMessage);
             this.grpBroastCast.Controls.Add(this.label2);
             this.grpBroastCast.Controls.Add(this.cmbClients);
             this.grpBroastCast.Controls.Add(this.cmbGroups);
-            this.grpBroastCast.Controls.Add(this.radioButton3);
-            this.grpBroastCast.Controls.Add(this.radioButton2);
-            this.grpBroastCast.Controls.Add(this.radioButton1);
+            this.grpBroastCast.Controls.Add(this.rdToClient);
+            this.grpBroastCast.Controls.Add(this.rdToGroup);
+            this.grpBroastCast.Controls.Add(this.rdToAll);
             this.grpBroastCast.Enabled = false;
-            this.grpBroastCast.Location = new System.Drawing.Point(12, 118);
+            this.grpBroastCast.Location = new System.Drawing.Point(12, 103);
             this.grpBroastCast.Name = "grpBroastCast";
             this.grpBroastCast.Size = new System.Drawing.Size(441, 152);
             this.grpBroastCast.TabIndex = 1;
@@ -119,21 +119,22 @@ namespace WindowsFormsServer
             this.grpBroastCast.Text = "Broadcast Message";
             this.grpBroastCast.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // button3
+            // btnSend
             // 
-            this.button3.Location = new System.Drawing.Point(319, 115);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(105, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Send";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSend.Location = new System.Drawing.Point(319, 115);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(105, 23);
+            this.btnSend.TabIndex = 4;
+            this.btnSend.Text = "Send";
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
-            // textBox2
+            // txtMessage
             // 
-            this.textBox2.Location = new System.Drawing.Point(112, 117);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(201, 20);
-            this.textBox2.TabIndex = 4;
+            this.txtMessage.Location = new System.Drawing.Point(112, 117);
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.Size = new System.Drawing.Size(201, 20);
+            this.txtMessage.TabIndex = 4;
             // 
             // label2
             // 
@@ -160,45 +161,46 @@ namespace WindowsFormsServer
             this.cmbGroups.Size = new System.Drawing.Size(201, 21);
             this.cmbGroups.TabIndex = 3;
             // 
-            // radioButton3
+            // rdToClient
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(22, 91);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(67, 17);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "To Client";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rdToClient.AutoSize = true;
+            this.rdToClient.Location = new System.Drawing.Point(22, 91);
+            this.rdToClient.Name = "rdToClient";
+            this.rdToClient.Size = new System.Drawing.Size(67, 17);
+            this.rdToClient.TabIndex = 2;
+            this.rdToClient.TabStop = true;
+            this.rdToClient.Text = "To Client";
+            this.rdToClient.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rdToGroup
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(22, 64);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(70, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "To Group";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdToGroup.AutoSize = true;
+            this.rdToGroup.Location = new System.Drawing.Point(22, 64);
+            this.rdToGroup.Name = "rdToGroup";
+            this.rdToGroup.Size = new System.Drawing.Size(70, 17);
+            this.rdToGroup.TabIndex = 1;
+            this.rdToGroup.TabStop = true;
+            this.rdToGroup.Text = "To Group";
+            this.rdToGroup.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rdToAll
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(22, 41);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(52, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "To All";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdToAll.AutoSize = true;
+            this.rdToAll.Checked = true;
+            this.rdToAll.Location = new System.Drawing.Point(22, 41);
+            this.rdToAll.Name = "rdToAll";
+            this.rdToAll.Size = new System.Drawing.Size(52, 17);
+            this.rdToAll.TabIndex = 0;
+            this.rdToAll.TabStop = true;
+            this.rdToAll.Text = "To All";
+            this.rdToAll.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txtLog);
-            this.groupBox3.Location = new System.Drawing.Point(12, 276);
+            this.groupBox3.Location = new System.Drawing.Point(12, 261);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(441, 342);
+            this.groupBox3.Size = new System.Drawing.Size(441, 357);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Log";
@@ -217,7 +219,7 @@ namespace WindowsFormsServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(465, 630);
+            this.ClientSize = new System.Drawing.Size(465, 626);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.grpBroastCast);
             this.Controls.Add(this.groupBox1);
@@ -242,14 +244,14 @@ namespace WindowsFormsServer
         private System.Windows.Forms.TextBox txtUrl;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.TextBox txtMessage;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbClients;
         private System.Windows.Forms.ComboBox cmbGroups;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rdToClient;
+        private System.Windows.Forms.RadioButton rdToGroup;
+        private System.Windows.Forms.RadioButton rdToAll;
         private System.Windows.Forms.TextBox txtLog;
     }
 }

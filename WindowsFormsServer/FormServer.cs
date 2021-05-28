@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin.Hosting;
+﻿using Microsoft.AspNet.SignalR;
+using Microsoft.Owin.Hosting;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -137,6 +138,24 @@ namespace WindowsFormsServer
             else
             {
                 txtLog.AppendText(log + Environment.NewLine);
+            }
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            var hubContext = GlobalHost.ConnectionManager.GetHubContext<SimpleHub>();
+
+            if (rdToAll.Checked)
+            {
+                hubContext.Clients.All.addMessage("SERVER", txtMessage.Text);
+            }
+            else if (rdToGroup.Checked)
+            {
+                hubContext.Clients.Group(cmbGroups.Text).addMessage("SERVER", txtMessage.Text);
+            }
+            else if (rdToClient.Checked)
+            {
+                hubContext.Clients.Client((string)cmbClients.SelectedValue).addMessage("SERVER", txtMessage.Text);
             }
         }
     }
